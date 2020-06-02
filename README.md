@@ -7,9 +7,6 @@ IoT system for writing co2 sensor value to GoogleSpreadSheet with Raspberry Pi.
 # install with pip
 $ pip3 install -r requirements.txt
 
-# install with pipenv
-$ pipenv install
-
 # install with poetry
 $ poetry install
 ```
