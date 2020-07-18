@@ -3,17 +3,14 @@ IoT system for writing co2 sensor value to GoogleSpreadSheet with Raspberry Pi.
 
 # Setup
 ## Install Dependencies Packages
-```zsh
+```bash
 # install with pip
 $ pip3 install -r requirements.txt
-
-# install with poetry
-$ poetry install
 ```
 
 ## Create Service Account
 ### By Website
-```zsh
+```bash
 # create service account
 https://cloud.google.com/iam/docs/creating-managing-service-accounts
 # set gcp path
@@ -23,7 +20,7 @@ https://cloud.google.com/apis/docs/enable-disable-apis
 ```
 
 ### By command line
-```zsh
+```bash
 # login google suite
 $ gcloud auth login
 # create GCP project
@@ -41,7 +38,7 @@ Create a GoogleSpreadSheet and from "Share" add the edit permission of the servi
 
 # Run
 ## Write CO2 Sensor to Google Spread Sheet
-```zsh
+```bash
 $ python3 handler.py --help
 usage: handler.py [-h] [-k KEY_PATH] [-s SPREAD_SHEET_ID] [-i INTERVAL]
 
