@@ -45,7 +45,7 @@ Create a GoogleSpreadSheet and from "Share" add the edit permission of the servi
 $ python3 handler.py --help
 usage: handler.py [-h] [-k KEY_PATH] [-s SPREAD_SHEET_ID] [-i INTERVAL]
 
-Google Spread Sheet Script
+CO2 Sensor Script
 
 optional arguments:
   -h, --help            show this help message and exit

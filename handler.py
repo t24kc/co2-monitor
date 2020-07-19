@@ -36,7 +36,7 @@ def main():
     with open("config.yaml") as file:
         config = yaml.full_load(file)
 
-    parser = argparse.ArgumentParser(description="Google Spread Sheet Script")
+    parser = argparse.ArgumentParser(description="CO2 Sensor Script")
     parser.add_argument(
         "-k",
         "--key-path",
@@ -63,7 +63,7 @@ def main():
     args = parser.parse_args()
 
     scheduler = Scheduler(args)
-    schedule.every(config["scheduler"]["monitoring_interval_minutes"]).minutes.do(
+    schedule.every(args.interval).minutes.do(
         scheduler.monitoring_job
     )
 
