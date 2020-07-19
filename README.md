@@ -40,22 +40,19 @@ Create a GoogleSpreadSheet and from "Share" add the edit permission of the servi
 ## Write CO2 Sensor to Google Spread Sheet
 ```bash
 $ python3 handler.py --help
-usage: handler.py [-h] [-k KEY_PATH] [-s SPREAD_SHEET_ID] [-i INTERVAL]
+usage: handler.py [-h] -s SPREAD_SHEET_ID [-k KEY_PATH] [-i INTERVAL]
 
-Google Spread Sheet Script
+CO2 Sensor Script
 
 optional arguments:
   -h, --help            show this help message and exit
-  -k KEY_PATH, --key-path KEY_PATH
-                        set service account key path (default .gcp/key.json)
   -s SPREAD_SHEET_ID, --spread-sheet-id SPREAD_SHEET_ID
                         set spread sheet id
+  -k KEY_PATH, --key-path KEY_PATH
+                        set service account key path (default .gcp/key.json)
   -i INTERVAL, --interval INTERVAL
-                        set script interval minutes (default 10 minutes)
-
-# update spread_sheet_id field in config file
-$ edit config.yaml
+                        set script interval seconds (default 600 seconds)
 
 # run script
-$ python3 handler.py
+$ python3 handler.py -s SPREAD_SHEET_ID [-k KEY_PATH] [-i INTERVAL]
 ```
