@@ -5,9 +5,10 @@ from sensor.CO2MINI import CO2MINI
 
 import argparse
 import schedule
-import yaml
 
 DEFAULT_COLUMNS = ["Time", "CO2(ppm)"]
+DEFAULT_SERVICE_ACCOUNT_PATH = ".gcp/key.json"
+DEFAULT_INTERVAL_SECONDS = 600
 
 
 class Scheduler:
@@ -33,37 +34,32 @@ class Scheduler:
 
 
 def main():
-    with open("config.yaml") as file:
-        config = yaml.full_load(file)
-
-    parser = argparse.ArgumentParser(description="Google Spread Sheet Script")
-    parser.add_argument(
-        "-k",
-        "--key-path",
-        type=str,
-        default=config["google"]["service_account_path"],
-        help="set service account key path (default {})".format(config["google"]["service_account_path"]),
-    )
+    parser = argparse.ArgumentParser(description="CO2 Sensor Script")
     parser.add_argument(
         "-s",
         "--spread-sheet-id",
         type=str,
-        default=config["google"]["spread_sheet_id"],
+        required=True,
         help="set spread sheet id",
+    )
+    parser.add_argument(
+        "-k",
+        "--key-path",
+        type=str,
+        default=DEFAULT_SERVICE_ACCOUNT_PATH,
+        help="set service account key path (default {})".format(DEFAULT_SERVICE_ACCOUNT_PATH),
     )
     parser.add_argument(
         "-i",
         "--interval",
         type=int,
-        default=config["scheduler"]["monitoring_interval_minutes"],
-        help="set script interval minutes (default {} minutes)".format(
-            config["scheduler"]["monitoring_interval_minutes"]
-        ),
+        default=DEFAULT_INTERVAL_SECONDS,
+        help="set script interval seconds (default {} seconds)".format(DEFAULT_INTERVAL_SECONDS),
     )
     args = parser.parse_args()
 
     scheduler = Scheduler(args)
-    schedule.every(config["scheduler"]["monitoring_interval_minutes"]).minutes.do(
+    schedule.every(args.interval).seconds.do(
         scheduler.monitoring_job
     )
 
