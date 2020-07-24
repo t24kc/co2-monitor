@@ -7,7 +7,7 @@ import argparse
 import schedule
 
 DEFAULT_COLUMNS = ["Time", "CO2(ppm)"]
-DEFAULT_SERVICE_ACCOUNT_PATH = ".gcp/key.json"
+DEFAULT_SERVICE_ACCOUNT_PATH = "./key.json"
 DEFAULT_INTERVAL_SECONDS = 600
 
 

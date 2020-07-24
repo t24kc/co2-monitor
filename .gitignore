@@ -130,4 +130,4 @@ dmypy.json
 .idea
 
 # gcp credentials
-.gcp/key.json
+./key.json

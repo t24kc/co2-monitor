@@ -13,8 +13,6 @@ $ pip3 install -r requirements.txt
 ```bash
 # create service account
 https://cloud.google.com/iam/docs/creating-managing-service-accounts
-# set gcp path
-$ mv key.json .gcp/key.json
 # enable sheet api
 https://cloud.google.com/apis/docs/enable-disable-apis
 ```
@@ -28,7 +26,7 @@ $ gcloud projects create [PROJECT_ID]
 # create service account
 $ gcloud iam service-accounts create [SA-NAME] --display-name [SA-DISPLAY-NAME]
 # generate service account key
-$ gcloud iam service-accounts keys create .gcp/key.json --iam-account [SA-NAME]@[PROJECT-ID].iam.gserviceaccount.com
+$ gcloud iam service-accounts keys create ./key.json --iam-account [SA-NAME]@[PROJECT-ID].iam.gserviceaccount.com
 # enable sheets api
 $ gcloud services enable sheets.googleapis.com
 ```
@@ -49,7 +47,7 @@ optional arguments:
   -s SPREAD_SHEET_ID, --spread-sheet-id SPREAD_SHEET_ID
                         set spread sheet id
   -k KEY_PATH, --key-path KEY_PATH
-                        set service account key path (default .gcp/key.json)
+                        set service account key path (default ./key.json)
   -i INTERVAL, --interval INTERVAL
                         set script interval seconds (default 600 seconds)
 
